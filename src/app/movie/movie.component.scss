@@ -1,0 +1,10 @@
+.zoom {
+    padding: 50px;
+    transition: transform .2s; /* Animation */
+    margin: -94px -88px 10px 20px;;
+    border-radius: 18%;
+  }
+  
+  .zoom:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }

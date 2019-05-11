@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../Services/movie.service';
+import { Movie } from '../Models/movie';
 
 @Component({
   selector: 'app-movies',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviesComponent implements OnInit {
 
-  constructor() { }
+  movies ;
+  allMovies;
+  constructor(private moviesService: MovieService) {
 
-  ngOnInit() {
   }
-
+  public async ngOnInit() {
+    this.allMovies=await this.moviesService.getWeeklyTopMovieList().toPromise();
+    this.movies=this.allMovies.results
+    console.log(this.movies);
+  }
 }
