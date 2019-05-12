@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpProvider } from './providers/http.provider';
 import { MoviesComponent } from './movies/movies.component';
 import { MovieComponent } from './movie/movie.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { MovieComponent } from './movie/movie.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SlickCarouselModule
   ],
   providers: [MovieService,HttpProvider],
   bootstrap: [AppComponent]

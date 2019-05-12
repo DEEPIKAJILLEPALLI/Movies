@@ -1,20 +1,70 @@
-body {
-    background: #e2e1e0;
-    text-align: center;
-  }
-  
-  .card {
-    background: #fff;
-    border-radius: 2px;
-    display: inline-block;
-    height: 260px;
-    margin: 1rem;
-    position: relative;
-    width: 260px;
-    float: left;
-  }
-  
-  .card-1 {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  }
+
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+.slick-slider {
+  width: 90%;
+  margin: auto;
+  background: #000;
+}
+ 
+.nav-btn {
+  height: 47px;
+  position: absolute;
+  width: 26px;
+  cursor: pointer;
+  top: 100px !important;
+}
+ 
+.prev-slide.slick-disabled,
+.next-slide.slick-disabled {
+  pointer-events: none;
+  opacity: 0.2;
+}
+ 
+.prev-slide {
+  background: url(../assets/images/nav-icon.png) no-repeat scroll 0 0;
+  left: -33px;
+}
+ 
+.next-slide {
+  background: url(../assets/images/nav-icon.png) no-repeat scroll -24px 0px;
+  right: -33px;
+}
+ 
+.prev-slide:hover {
+  background-position: 0px -53px;
+}
+ 
+.next-slide:hover {
+  background-position: -24px -53px;
+}
