@@ -15,5 +15,13 @@ Posterfullpath;
   ngOnInit() {
     this.Posterfullpath=this.secure_base_url+this.movie.poster_path;
   }
+  slideConfig = {
+    "slidesToShow": 4, 
+    "slidesToScroll": 1,
+    "nextArrow":"<div class='nav-btn next-slide'></div>",
+    "prevArrow":"<div class='nav-btn prev-slide'></div>",
+    "dots":true,
+    "infinite": false
+  };
 
 }

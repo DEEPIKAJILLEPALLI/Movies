@@ -1,1 +1,8 @@
-<app-movie *ngFor="let movie of movies" [movie]="movie"></app-movie>
+
+<ngx-slick-carousel class="carousel" 
+#slickModal="slick-carousel" 
+[config]="slideConfig" >
+<div ngxSlickItem *ngFor="let movie of movies" class="slide">
+<img class="zoom" src="{{ secure_base_url + movie.poster_path}}" alt="" width="65%">
+</div>
+</ngx-slick-carousel>
