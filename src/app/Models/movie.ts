@@ -15,6 +15,7 @@ export class Movie {
     backdrop_path:string;
     adult:string;
     homepage:string;
+    profile_path:string;
 }
 export class Genres{
     id:number;

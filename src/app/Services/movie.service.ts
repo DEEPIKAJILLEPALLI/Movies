@@ -13,23 +13,50 @@ export class MovieService {
   private url:string="https://api.themoviedb.org/3/";
   private commonTrendingURL=this.url+"trending/";
 
-  allTypes:string=this.commonTrendingURL+ "all/day"+this.api_key;
+  DallTypes:string=this.commonTrendingURL+ "all/day"+this.api_key;
   Dmovies:string=this.commonTrendingURL+"movie/day"+this.api_key;
   DtvShows:string=this.commonTrendingURL+ "tv/day"+this.api_key;
-  Dpersons:string=this.commonTrendingURL+ "person/week"+this.api_key;
+  Dpersons:string=this.commonTrendingURL+ "person/day"+this.api_key;
   allTypesW:string=this.commonTrendingURL+ "all/week"+this.api_key;
   moviesW:string=this.commonTrendingURL+ "movie/week"+this.api_key;
   tvShowsW:string=this.commonTrendingURL+ "tv/week"+this.api_key;
-  personsW:string=this.commonTrendingURL+ "person/week"+this.api_key;
+  personsW:string="https://api.themoviedb.org/3/trending/person/week"+this.api_key;
 
   constructor(private http: HttpProvider) { }
 
-getWeeklyTopMovieList(): Observable<Movie[]> {
+getWeeklyTopList(): Observable<Movie[]> {
   return this.http.get(this.allTypesW)
       .pipe(map(res => <Movie[]>res));
 }
-getDayTopMovieList(): Observable<Movie[]> {
+
+getWeeklyTopMovieList(): Observable<Movie[]> {
   return this.http.get(this.moviesW)
+      .pipe(map(res => <Movie[]>res));
+}
+getWeeklyTopTvShowsList(): Observable<Movie[]> {
+  return this.http.get(this.tvShowsW)
+      .pipe(map(res => <Movie[]>res));
+}
+
+getWeeklyTopPersonsList(): Observable<Movie[]> {
+  return this.http.get(this.personsW)
+      .pipe(map(res => <Movie[]>res));
+}
+getDayTopList(): Observable<Movie[]> {
+  return this.http.get(this.DallTypes)
+      .pipe(map(res => <Movie[]>res));
+}
+
+getDayTopTvShowsList(): Observable<Movie[]> {
+  return this.http.get(this.DtvShows)
+      .pipe(map(res => <Movie[]>res));
+}
+getDayTopMovieList(): Observable<Movie[]> {
+  return this.http.get(this.Dmovies)
+      .pipe(map(res => <Movie[]>res));
+}
+getDailyTopPersonsList(): Observable<Movie[]> {
+  return this.http.get(this.Dpersons)
       .pipe(map(res => <Movie[]>res));
 }
 }

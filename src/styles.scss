@@ -21,12 +21,14 @@
    
   .prev-slide {
     background: url(assets/images/nav-icon.png) no-repeat scroll 0 0;
-    left: -33px;
+    left: -78px;
+    margin-top: 110px;
   }
    
   .next-slide {
     background: url(assets/images/nav-icon.png) no-repeat scroll -24px 0px;
-    right: -33px;
+    right: 17px;
+    margin-top: 110px;
   }
    
   .prev-slide:hover {
@@ -35,4 +37,16 @@
    
   .next-slide:hover {
     background-position: -24px -53px;
+  }
+  .zoomin img {
+    height: 200px;
+    width: 200px;
+    -webkit-transition: all 2s ease;
+       -moz-transition: all 2s ease;
+        -ms-transition: all 2s ease;
+            transition: all 2s ease;
+  }
+  .zoomin img:hover {
+    width: 300px;
+    height: 300px;
   }
