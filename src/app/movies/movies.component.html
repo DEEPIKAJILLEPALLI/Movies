@@ -1,4 +1,12 @@
 <h3> Top weekly Picks For You</h3>
+<div class="slick-container">
+    <div class="slick-slider" dir="ltr">
+        <div class="slick-list" *ngFor="let movie of allWeeklyTops" class="slide">
+                <img class="zoom" src="{{ secure_base_url + movie.poster_path}}" alt="" width="15%">
+        </div>
+    </div>
+</div>
+<h3> Top weekly Picks For You</h3>
 <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
     <div  ngxSlickItem *ngFor="let movie of allWeeklyTops" class="slide">
         <img class="zoom" src="{{ secure_base_url + movie.poster_path}}" alt="" width="65%">
