@@ -5,19 +5,23 @@
                 <img src="{{ secure_base_url + movie.poster_path}}" alt="" width="150px;" height="200px;">
             </div>
     </div>
-   
-<!-- 
-<div class="slick-container">
+<img src="/assets/images/RArrow.png" style="top:110px;
+right: 30px;
+left: 0px;
+float:right;
+position: relative;">  
+
+<!-- <div class="slick-container">
     <div class="slick-slider" >
         <div class="slick-list" *ngFor="let movie of allWeeklyTops" class="slide" style="float: left;">
                 <img class="zoom" src="{{ secure_base_url + movie.poster_path}}" alt="" width="15%">
         </div>
     </div>
-</div>
+</div> --><!-- 
 <h3> Top weekly Picks For You</h3>
 <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
     <div  ngxSlickItem *ngFor="let movie of allWeeklyTops" class="slide">
-        <img class="zoom" src="{{ secure_base_url + movie.poster_path}}" alt="" width="65%">
+        <img class="zoom" src="{{ secure_base_url + movie.poster_path}}" alt="" width="35%">
     </div>
 </ngx-slick-carousel>
 <h3> Top Weekly Movie Picks For You</h3>
