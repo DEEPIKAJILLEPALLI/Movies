@@ -1,7 +1,15 @@
 <h3> Top weekly Picks For You</h3>
+<img src="/assets/images/LArrow.png" style="position: absolute;top:110px;">
+        <div class="container" > 
+            <div class="card" *ngFor="let movie of allWeeklyTops">
+                <img src="{{ secure_base_url + movie.poster_path}}" alt="" width="150px;" height="200px;">
+            </div>
+    </div>
+   
+<!-- 
 <div class="slick-container">
-    <div class="slick-slider" dir="ltr">
-        <div class="slick-list" *ngFor="let movie of allWeeklyTops" class="slide">
+    <div class="slick-slider" >
+        <div class="slick-list" *ngFor="let movie of allWeeklyTops" class="slide" style="float: left;">
                 <img class="zoom" src="{{ secure_base_url + movie.poster_path}}" alt="" width="15%">
         </div>
     </div>
@@ -53,4 +61,4 @@
     <div ngxSlickItem *ngFor="let movie of allTopPersons" class="slide">
         <img  class="zoom" src="{{ secure_base_url + movie.profile_path}}" alt="" width="65%">
     </div>
-</ngx-slick-carousel>
+</ngx-slick-carousel> -->
