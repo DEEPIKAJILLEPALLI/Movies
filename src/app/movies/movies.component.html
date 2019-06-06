@@ -1,15 +1,11 @@
 <h3> Top weekly Picks For You</h3>
 <img src="/assets/images/LArrow.png" style="position: absolute;top:110px;">
         <div class="container" > 
-            <div class="card" *ngFor="let movie of allWeeklyTops">
+            <div class="card" *ngFor="let movie of weeks">
                 <img src="{{ secure_base_url + movie.poster_path}}" alt="" width="150px;" height="200px;">
             </div>
     </div>
-<img src="/assets/images/RArrow.png" style="top:110px;
-right: 30px;
-left: 0px;
-float:right;
-position: relative;">  
+<img src="/assets/images/RArrow.png" class="RArrow" click="RightArrowClicked()">  
 
 <!-- <div class="slick-container">
     <div class="slick-slider" >

@@ -17,7 +17,8 @@ export class MoviesComponent implements OnInit {
   allWMovies;
   allWTvShows;
   allWTopPersons;
-
+  weeks = [];
+  count = 0;
   public secure_base_url: string = "https://image.tmdb.org/t/p/original";
 
 
@@ -32,17 +33,36 @@ export class MoviesComponent implements OnInit {
     "dots": false,
     "infinite": false
   };
+  public pushData(element) {
+    if (this.count < 12) {
+      this.count++;
+      this.weeks.push(element);
+    }
+  }
+  
   public async ngOnInit() {
     let data;
     data = await this.moviesService.getWeeklyTopList().toPromise();
     this.allWeeklyTops = data.results;
+    data.results.forEach(element => {
+      this.pushData(element);
+    });
+    console.log(this.weeks);
+//     let cnt = 0;
+// this.weeks=[];
+//     this.allWeeklyTops.forEach(ele => {
+//       if (cnt != 0 && cnt <=12) {
+//         this.weeks.push(ele);
+//       }
+//       cnt++;
+//     });
+    console.log(this.weeks);
     data = await this.moviesService.getWeeklyTopMovieList().toPromise();
     this.allWMovies = data.results;
     data = await this.moviesService.getWeeklyTopTvShowsList().toPromise();
     this.allWTvShows = data.results;
     data = await this.moviesService.getWeeklyTopPersonsList().toPromise();
     this.allWTopPersons = data.results;
-    console.log(this.allWTopPersons);
     data = await this.moviesService.getDayTopList().toPromise();
     this.allDailyTops = data.results;
     data = await this.moviesService.getDayTopMovieList().toPromise();
@@ -54,4 +74,18 @@ export class MoviesComponent implements OnInit {
 
 
   }
+  public RightArrowClicked() {
+    let cnt = 0;
+    this.weeks=[];
+        this.allWeeklyTops.forEach(ele => {
+      if (cnt != 0 && cnt <=12) {
+        this.weeks.push(ele);
+      }
+      cnt++;
+    });
+    console.log(this.weeks);
+    window.alert('hello');
+
+  }
+  
 }

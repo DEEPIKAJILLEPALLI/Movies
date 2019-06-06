@@ -5,7 +5,13 @@
   border-radius: 18px;
 
 }
-
+.RArrow{
+  top:110px;
+right: 30px;
+left: 0px;
+float:right;
+position: relative;
+}
 .zoom:hover {
   transform: scale(1.3,1.3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
