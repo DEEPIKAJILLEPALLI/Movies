@@ -20,7 +20,7 @@ export class MoviesComponent implements OnInit {
   weeks = [];
   count = 0;
   public secure_base_url: string = "https://image.tmdb.org/t/p/original";
-
+width;
 
   constructor(private moviesService: MovieService) {
 
@@ -33,19 +33,21 @@ export class MoviesComponent implements OnInit {
     "dots": false,
     "infinite": false
   };
-  public pushData(element) {
-    if (this.count < 12) {
+  public pushData(element,count) {
+    if (this.count < count-2) {
       this.count++;
       this.weeks.push(element);
     }
   }
   
   public async ngOnInit() {
+    this.width=parseInt(document.getElementById("demo").innerHTML=" "+ screen.width.toString());
+    this.width/=150
     let data;
     data = await this.moviesService.getWeeklyTopList().toPromise();
     this.allWeeklyTops = data.results;
     data.results.forEach(element => {
-      this.pushData(element);
+      this.pushData(element,this.width);
     });
     console.log(this.weeks);
 //     let cnt = 0;
