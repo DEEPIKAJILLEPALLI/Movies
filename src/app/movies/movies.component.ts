@@ -20,7 +20,10 @@ export class MoviesComponent implements OnInit {
   weeks = [];
   count = 0;
   public secure_base_url: string = "https://image.tmdb.org/t/p/original";
-width;
+  width;
+  cnt;
+  Unshiftedeles=[];
+  LeftCounter=0;
 
   constructor(private moviesService: MovieService) {
 
@@ -33,32 +36,26 @@ width;
     "dots": false,
     "infinite": false
   };
-  public pushData(element,count) {
-    if (this.count < count-2) {
+  public pushData(element, count) {
+    if (this.count < count - 2) {
       this.count++;
       this.weeks.push(element);
     }
   }
-  
+
   public async ngOnInit() {
-    this.width=parseInt(document.getElementById("demo").innerHTML=" "+ screen.width.toString());
-    this.width/=150
+    this.width =  screen.width;
+    this.width /= 150
+    if(this.width<10){
+console.log(document.getElementsByClassName('card'));
+    }
+    this.cnt = this.width - 2;
     let data;
     data = await this.moviesService.getWeeklyTopList().toPromise();
     this.allWeeklyTops = data.results;
     data.results.forEach(element => {
-      this.pushData(element,this.width);
+      this.pushData(element, this.width);
     });
-    console.log(this.weeks);
-//     let cnt = 0;
-// this.weeks=[];
-//     this.allWeeklyTops.forEach(ele => {
-//       if (cnt != 0 && cnt <=12) {
-//         this.weeks.push(ele);
-//       }
-//       cnt++;
-//     });
-    console.log(this.weeks);
     data = await this.moviesService.getWeeklyTopMovieList().toPromise();
     this.allWMovies = data.results;
     data = await this.moviesService.getWeeklyTopTvShowsList().toPromise();
@@ -77,17 +74,26 @@ width;
 
   }
   public RightArrowClicked() {
-    let cnt = 0;
-    this.weeks=[];
-        this.allWeeklyTops.forEach(ele => {
-      if (cnt != 0 && cnt <=12) {
-        this.weeks.push(ele);
-      }
-      cnt++;
-    });
-    console.log(this.weeks);
-    window.alert('hello');
+    document.getElementById('LArrow').style.visibility='visible';
+    if (Math.ceil(this.cnt) == this.allWeeklyTops.length - 1) {
+      document.getElementById('rArrow').style.visibility = 'hidden';
+
+    }
+    if (this.cnt < this.allWeeklyTops.length - 1) {
+     this.Unshiftedeles[this.LeftCounter++]= this.weeks.shift();
+      this.weeks.push(this.allWeeklyTops[(Math.ceil(this.cnt++))]);
+    }
+  }
+public LeftArrowClicked() {
+  document.getElementById('rArrow').style.visibility='visible';
+  if (this.LeftCounter==1) {
+    document.getElementById('LArrow').style.visibility = 'hidden';
 
   }
-  
+  if(this.LeftCounter!=0){
+    this.weeks.pop();
+    this.weeks.unshift(this.Unshiftedeles[--this.LeftCounter]);
+  }
+}
+
 }
