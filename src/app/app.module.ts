@@ -6,16 +6,16 @@ import { AppComponent } from './app.component';
 import { MovieService } from './Services/movie.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpProvider } from './providers/http.provider';
-import { MoviesComponent } from './movies/movies.component';
-import { MovieComponent } from './movie/movie.component';
+import { MoviesContainerComponent } from './movies-container/movies-container.component';
+import { MovieCarouselComponent } from './movie-carousel/movie-carousel.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MoviesComponent,
-    MovieComponent
+    MoviesContainerComponent,
+    MovieCarouselComponent
   ],
   imports: [
     BrowserModule,

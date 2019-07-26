@@ -3,11 +3,11 @@ import { MovieService } from '../Services/movie.service';
 import { Movie } from '../Models/movie';
 
 @Component({
-  selector: 'app-movies',
-  templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.scss']
+  selector: 'app-movies-container',
+  templateUrl: './movies-container.component.html',
+  styleUrls: ['./movies-container.component.scss']
 })
-export class MoviesComponent implements OnInit {
+export class MoviesContainerComponent implements OnInit {
 
   allWeeklyTops;
   allDailyTops;
@@ -28,14 +28,7 @@ export class MoviesComponent implements OnInit {
   constructor(private moviesService: MovieService) {
 
   }
-  slideConfig = {
-    "slidesToShow": 4,
-    "slidesToScroll": 1,
-    "nextArrow": "<div class='nav-btn next-slide'></div>",
-    "prevArrow": "<div class='nav-btn prev-slide'></div>",
-    "dots": false,
-    "infinite": false
-  };
+ 
   public pushData(element, count) {
     if (this.count < count - 2) {
       this.count++;
@@ -46,28 +39,34 @@ export class MoviesComponent implements OnInit {
   public async ngOnInit() {
     this.width =  screen.width;
     this.width /= 150
-    if(this.width<10){
-console.log(document.getElementsByClassName('card'));
-    }
     this.cnt = this.width - 2;
     let data;
     data = await this.moviesService.getWeeklyTopList().toPromise();
     this.allWeeklyTops = data.results;
     data.results.forEach(element => {
+      let count=0;
       this.pushData(element, this.width);
+      count++;
     });
     data = await this.moviesService.getWeeklyTopMovieList().toPromise();
     this.allWMovies = data.results;
+    data.results.forEach(element => {
+      this.pushData(element, this.width);
+    });
+
+
     data = await this.moviesService.getWeeklyTopTvShowsList().toPromise();
-    this.allWTvShows = data.results;
+    this.allWTvShows = data;
     data = await this.moviesService.getWeeklyTopPersonsList().toPromise();
-    this.allWTopPersons = data.results;
+    this.allWTopPersons = data;
     data = await this.moviesService.getDayTopList().toPromise();
-    this.allDailyTops = data.results;
+    this.allDailyTops = data;
     data = await this.moviesService.getDayTopMovieList().toPromise();
-    this.allMovies = data.results;
+    this.allMovies = data;
     data = await this.moviesService.getDayTopTvShowsList().toPromise();
-    this.allTvShows = data.results;
+    this.allTvShows = data;
+    data = await this.moviesService.getDayTopTvShowsList().toPromise();
+    this.allTvShows = data;
     data = await this.moviesService.getDailyTopPersonsList().toPromise();
     this.allTopPersons = data.results;
 

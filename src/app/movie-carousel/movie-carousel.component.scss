@@ -1,0 +1,105 @@
+.zoom {
+  
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+  border-radius: 18px;
+
+}
+.RArrow{
+ // top:55px;
+right: 30px;
+left: 0px;
+float:right;
+position: relative;
+visibility: visible;
+}
+.zoom:hover {.zoom {
+  
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+  border-radius: 18px;
+  
+
+}
+.RArrow{
+ // top:55px;
+right: 30px;
+left: 0px;
+float:right;
+position: relative;
+visibility: visible;
+}
+.zoom:hover {
+  transform: scale(1.3,1.3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+// .slide{
+//   position: absolute;
+// }
+.slider{
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+}
+.container{
+     /* right: 60px; */
+     mARGIN-LEFT: 37px;
+     display: flex;
+     /* overflow: hidden; */
+     /* width: 100%; */
+      // position: absolute;
+ 
+
+
+}
+.card{
+  margin: 7.5px;
+    cursor: pointer;
+}
+.card:hover{
+  transform: scale(1.3,1.3);
+  z-index: 4;
+
+}
+img{
+  border-radius:15px;
+}
+img:hover{
+  border-radius:15px !important;
+}
+
+  transform: scale(1.3,1.3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+// .slide{
+//   position: absolute;
+// }
+.slider{
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+}
+.container{
+     /* right: 60px; */
+     mARGIN-LEFT: 37px;
+     display: flex;
+     /* overflow: hidden; */
+     /* width: 100%; */
+      // position: absolute;
+ 
+
+
+}
+.card{
+  margin: 7.5px;
+    cursor: pointer;
+}
+.card:hover{
+  transform: scale(1.3,1.3);
+  z-index: 4;
+
+}
+img{
+  border-radius:15px;
+}
+img:hover{
+  border-radius:15px !important;
+}
