@@ -6,7 +6,7 @@
         style="float:right;margin-top:40px;">
     <div class="container">
         <div class="card" *ngFor="let movie of weeks">
-            <img *ngIf="movie.poster_path" class="zoom" src="{{ secure_base_url + movie.poster_path}}" alt=""
+            <img *ngIf="movie.poster_path" class="zoom" src="{{ secure_base_url + movie.poster_path}}" alt="" [routerLink]="['/movie', movie.id,movie.media_type]"
                 width="150px;" height="200px;">
             <img *ngIf="movie.profile_path" class="zoom" src="{{ secure_base_url + movie.profile_path}}" alt=""
                 width="150px;" height="200px;">

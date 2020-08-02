@@ -2,12 +2,14 @@ export class Movie {
     id:number;
     original_title:string;
     title:string;
+    name:string
     original_language:SpokenLanguage;
     genres:Genres;
     overview:string;
     poster_path:string;
     production_companies:ProductionDetails;
     release_date:string;
+    budget:number;
     revenue:string;
     runtime:number;
     tagline:string;
@@ -16,6 +18,10 @@ export class Movie {
     adult:string;
     homepage:string;
     profile_path:string;
+    video:boolean;
+    vote_average: number;
+  vote_count: number;
+
 }
 export class Genres{
     id:number;

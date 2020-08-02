@@ -1,0 +1,7 @@
+<div class="movie-layout">
+  <img src="{{ secure_base_url + movie.backdrop_path }}" alt=""  width="auto" height="200px;">
+  <h2 *ngIf="type=='movie'" else name>{{ movie.title }} </h2>
+  <h2 *ngIf="type=='tv'" else name>{{ movie.name }} </h2>
+  <h4>{{ movie.overview }}</h4>
+  
+</div>

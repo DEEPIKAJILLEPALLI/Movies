@@ -9,13 +9,15 @@ import { HttpProvider } from './providers/http.provider';
 import { MoviesContainerComponent } from './movies-container/movies-container.component';
 import { MovieCarouselComponent } from './movie-carousel/movie-carousel.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesContainerComponent,
-    MovieCarouselComponent
+    MovieCarouselComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
