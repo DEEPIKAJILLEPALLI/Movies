@@ -10,11 +10,13 @@ import { MoviesContainerComponent } from './movies-container/movies-container.co
 import { MovieCarouselComponent } from './movie-carousel/movie-carousel.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { MoviesearchComponent } from './moviesearch/moviesearch.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    MoviesearchComponent,
     MoviesContainerComponent,
     MovieCarouselComponent,
     MovieDetailsComponent

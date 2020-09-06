@@ -21,7 +21,7 @@ export class MovieService {
   moviesW:string=this.commonTrendingURL+ "movie/week"+this.api_key;
   tvShowsW:string=this.commonTrendingURL+ "tv/week"+this.api_key;
   personsW:string=this.url+"trending/person/week"+this.api_key;
-  
+  multiSearch:string=this.url+"search/multi"+this.api_key;
   
 
   constructor(private http: HttpProvider) { }
@@ -64,5 +64,8 @@ getDailyTopPersonsList(): Observable<Movie[]> {
 getInfo(id:string,media_type:string):Observable<Movie>{
   return this.http.get(this.url+media_type+"/"+ id + this.api_key)
   .pipe(map(res => <Movie>res));
+}
+getSearchList(search:string): Observable<Movie[]>{
+  return this.http.get(this.multiSearch+"&query="+search).pipe(map(res => <Movie[]>res));
 }
 }

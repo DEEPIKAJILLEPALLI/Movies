@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../Services/movie.service';
 import { Movie } from '../Models/movie';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-movies-container',
   templateUrl: './movies-container.component.html',
@@ -25,10 +25,15 @@ export class MoviesContainerComponent implements OnInit {
   Unshiftedeles=[];
   LeftCounter=0;
 
-  constructor(private moviesService: MovieService) {
+  constructor(private moviesService: MovieService,
+    private router:  Router
+    ) {
 
   }
- 
+  onSubmit() {  
+    this.router.navigate(['/search']);  
+}  
+
   public pushData(element, count) {
     if (this.count < count - 2) {
       this.count++;
@@ -94,5 +99,4 @@ public LeftArrowClicked() {
     this.weeks.unshift(this.Unshiftedeles[--this.LeftCounter]);
   }
 }
-
 }

@@ -1,0 +1,11 @@
+
+<div >
+<br>
+&nbsp;&nbsp;&nbsp;<input #searchBox type="text" placeholder="Please enter text"  (keyup)="OnInputChange($event)"/> &nbsp;
+  <input type="button" value="Search Movie"  id="btnSearch" (click)="getMovieList()" />  
+</div>
+
+<div>
+  <br>
+  <app-movie-carousel [data]="allMovies" [header]="header" ></app-movie-carousel> 
+</div>
